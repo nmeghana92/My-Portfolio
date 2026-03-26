@@ -6,27 +6,27 @@
  🔗 View Portfolio ( https://nmeghana92.github.io/My-Portfolio/)
 
 ✨ Features
-  💻 Fully Responsive Design
-  🎨 Modern UI with Gradient & Animations
-  ⚡ Smooth Scrolling Navigation
-  🧠 Dynamic Role Animation (CSS Keyframes)
-  📊 Skills Section with Animations
-  🎓 Education Timeline
-  🛠️ Projects Showcase
-  📞 Contact Form with Google Maps
+💻 Fully Responsive Design
+🎨 Modern UI with Gradient & Animations
+⚡ Smooth Scrolling Navigation
+🧠 Dynamic Role Animation (CSS Keyframes)
+📊 Skills Section with Animations
+🎓 Education Timeline
+🛠️ Projects Showcase
+📞 Contact Form with Google Maps
 
 🛠️ Tech Stack
-  HTML5
-  CSS3
-  Bootstrap 5
-  Font Awesome Icons
+HTML5
+CSS3
+Bootstrap 5
+Font Awesome Icons
 
 📂 Project Structure
-  📁 My Portfolio
-   ┣ 📄 index.html
-   ┣ 📄p1.jpg
-   ┣ 📄p3.jpg
-   ┣ 📁 images
+📁 My Portfolio
+┣ 📄 index.html
+┣ 📄p1.jpg
+┣ 📄p3.jpg
+┣ 📁 images
 
 📸 Screenshots
 ### 🏠 Home
