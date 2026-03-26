@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Meghana Portfolio</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+body { scroll-behavior: smooth; } /*It is a CSS property that allows for smooth scrolling.There is no direct bootstap equivalent for this.*/
+
+/* Hero */
+.hero {
+  height: 100vh;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+}/* It is a Custom class. Bootstrap doesn’t give gradients like this. linear-gradient → background color blend*/
+
+/* image */
+.hero-img { 
+  max-width: 300px;
+  border-radius: 20px;
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.4);
+  transition: 0.3s;
+}/* It is for Styling image. bootstrp has some default classes for images like img-fluid, rounded, etc. but this is a custom class for specific styling.border-radius → rounded image
+box-shadow → shadow effect     transition → smooth animation*/
+
+.hero-img:hover {
+  transform: scale(1.05);
+}/* Hover effect. Image zooms when mouse hovers*/
+
+/* TEXT ANIMATION*/
+.role-animation::after { /* ::after → pseudo-element. Adds text without HTML.*/
+  content: "Frontend Developer";
+  color: #00d4ff;
+  font-weight: bold;
+  animation: changeRole 6s infinite;/* Animation call. Changes text automatically*/
+}  
+
+/* change text animation. Text changes every few seconds*/
+@keyframes changeRole {
+
+  0%   { content: "Frontend Developer"; }
+  33%  { content: "Web Developer"; }
+  66%  { content: "MERN Stack Developer"; }
+  100% { content: "Frontend Developer"; }
+
+}
+
+/* cursor effect */
+.role-animation::before {
+  content: "|";
+  margin-right: 5px;
+  animation: blink 1s infinite;
+}
+/* blinking cursor*/
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+/* ABOUT IMAGE */
+.about-img {
+  transition: 0.4s;
+}
+
+.about-img:hover {
+  transform: scale(1.05);
+}
+
+/* INFO BOX */
+.info-box {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+/* ICON */
+.info-box i {
+  font-size: 20px;
+  color: #007bff;
+}
+
+/* HOVER ANIMATION */
+.info-box:hover {
+  background: #007bff;
+  color: white;
+  transform: translateY(-8px);
+}
+
+.info-box:hover i {
+  color: white;
+}
+/* Section */
+.section-title {
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+/* Card hover */
+.card:hover {
+  transform: translateY(-10px);
+  transition: 0.3s;
+}
+/* skills SECTION BACKGROUND */
+/* SECTION */
+.skills-section {
+  background: linear-gradient(to right, #eef2f3, #dfe9f3);
+}
+
+/* SKILL BOX */
+.skill-box {
+  background: white;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  transition: 0.3s;
+  box-shadow: 0px 3px 10px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* delay for each item */
+.skill-box:nth-child(2) { animation-delay: 0.2s; }
+.skill-box:nth-child(3) { animation-delay: 0.4s; }
+.skill-box:nth-child(4) { animation-delay: 0.6s; }
+.skill-box:nth-child(5) { animation-delay: 0.8s; }
+.skill-box:nth-child(6) { animation-delay: 1s; }
+
+/* HOVER */
+.skill-box:hover {
+  background: #007bff;
+  color: white;
+  transform: translateX(10px);
+}
+
+/* MAIN ANIMATION */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* SECTION SLIDE EFFECT */
+.animate-box {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: sectionFade 1s ease forwards;
+}
+
+/* trigger every time visible (CSS trick) */
+#skills:target .animate-box {
+  animation: sectionFade 1s ease forwards;
+}
+
+/* animation */
+@keyframes sectionFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* SECTION */
+.education-section {
+  background: #f8f9fa;
+}
+
+/* TIMELINE LINE */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background: #007bff;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+}
+
+/* ITEMS */
+.timeline-item {
+  padding: 20px 40px;
+  position: relative;
+  width: 50%;
+}
+
+/* LEFT */
+.timeline-item:nth-child(odd) {
+  left: 0;
+}
+
+/* RIGHT */
+.timeline-item:nth-child(even) {
+  left: 50%;
+}
+
+/* DOT */
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #007bff;
+  border-radius: 50%;
+  top: 30px;
+  right: -10px;
+}
+
+.timeline-item:nth-child(even)::after {
+  left: -10px;
+}
+
+/* CONTENT */
+.timeline-content {
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+/* HOVER */
+.timeline-content:hover {
+  transform: translateY(-5px);
+}
+
+/* MOBILE */
+@media screen and (max-width: 768px) {
+  .timeline::after {
+    left: 20px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 60px;
+  }
+
+  .timeline-item:nth-child(even) {
+    left: 0;
+  }
+
+  .timeline-item::after {
+    left: 10px;
+  }
+}
+/* PROJECT CARD */
+.project-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+/* HOVER */
+.project-card:hover {
+  transform: translateY(-10px);
+}
+
+/* TAGS */
+.tag {
+  display: inline-block;
+  background: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin: 3px;
+}
+
+/* UPCOMING STYLE */
+.upcoming {
+  border: 2px dashed #ffc107;
+}
+/* SECTION */
+.services-section {
+  background: #ffffff;
+}
+
+/* CARD */
+.service-card {
+  padding: 25px;
+  border-radius: 15px;
+  background: #f8f9fa;
+  transition: 0.3s;
+  height: 100%;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.08);
+}
+
+/* ICON */
+.service-card i {
+  font-size: 30px;
+  color: #007bff;
+}
+
+/* HOVER EFFECT */
+.service-card:hover {
+  transform: translateY(-10px);
+  background: #007bff;
+  color: white;
+}
+
+/* ICON HOVER */
+.service-card:hover i {
+  color: white;
+}
+/* SECTION */
+.contact-section {
+  background: #f8f9fa;
+}
+
+/* CONTACT BOX */
+.contact-box {
+  background: white;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: 0.3s;
+}
+
+/* ICON */
+.contact-box i {
+  font-size: 20px;
+  color: #007bff;
+}
+
+/* HOVER */
+.contact-box:hover {
+  transform: translateX(10px);
+  background: #007bff;
+  color: white;
+}
+
+.contact-box:hover i {
+  color: white;
+}
+
+/* FORM */
+.contact-form {
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold">Meghana</a>
+
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto">
+        <li><a class="nav-link" href="#home">Home</a></li>
+        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#skills">Skills</a></li>
+        <li><a class="nav-link" href="#education">Education</a></li>
+        <li><a class="nav-link" href="#projects">Projects</a></li>
+        <li><a class="nav-link" href="#services">Services</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section id="home" class="hero d-flex align-items-center">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <!-- LEFT -->
+      <div class="col-md-6 text-center text-md-start">
+
+        <p class="text-light mb-2">Welcome to my Portfolio</p>
+
+        <h1 class="fw-bold text-white">
+          Hi, I'm Meghana
+        </h1>
+
+        <h4 class="mt-3 text-white">
+          I'm passionate about <br>
+          <span class="role-animation"></span>
+        </h4>
+
+        <a href="mailto:nmeghana9347@gmail.com"
+           class="btn btn-info mt-4 px-4 py-2 rounded-pill text-white">
+           Hire Me
+        </a>
+
+      </div>
+
+      <!-- RIGHT -->
+      <div class="col-md-6 text-center mt-4 mt-md-0">
+
+        <img src="p3.jpg"
+             class="img-fluid hero-img">
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+
+<section id="about" class="py-5">
+  <div class="container">
+
+    <h2 class="section-title text-center">About Me</h2>
+
+    <div class="row align-items-center mt-4">
+
+      <!-- IMAGE -->
+      <div class="col-md-4 text-center mb-4">
+        <img src="p1.jpg" class="img-fluid rounded shadow about-img">
+      </div>
+
+      <!-- CONTENT -->
+      <div class="col-md-8">
+
+        <h4 class="text-primary fw-bold">Who am I?</h4>
+
+        <p>
+          Hello! I'm <strong>Meghana</strong>, a passionate and dedicated web developer 
+          with a strong interest in building modern, responsive, and user-friendly applications. 
+          I enjoy transforming ideas into real-world projects using clean and efficient code.
+        </p>
+
+        <p>
+          Currently, I am pursuing my B.Tech in Information Technology and working as a 
+          <strong>MERN Stack Intern at Global Quest Technologies</strong>. 
+          During my internship, I am gaining hands-on experience in developing full-stack applications 
+          using MongoDB, Express.js, React.js, and Node.js.
+        </p>
+
+        <p>
+          I am especially passionate about frontend development, creating attractive UI designs, 
+          and improving user experience. I am continuously learning and exploring new technologies 
+          to enhance my development skills.
+        </p>
+
+        <!-- CONTACT INFO -->
+        <div class="row mt-4">
+          <div class="col-md-4 mb-3">
+            <div class="info-box text-center">
+              <i class="fa fa-phone"></i>
+              <p class="mt-2">+91 9347861449</p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <div class="info-box text-center">
+              <i class="fa fa-envelope"></i>
+              <p class="mt-2">nmeghana9347@gmail.com</p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <div class="info-box text-center">
+              <i class="fa fa-map-marker"></i>
+              <p class="mt-2">Bhimavaram</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills" class="py-5 skills-section">
+  <div class="container">
+
+    <h2 class="section-title text-center mb-5">My Skills</h2>
+
+    <div class="row">
+
+      <!-- SOFT SKILLS -->
+      <div class="col-md-6 mb-4 animate-box">
+
+        <h4 class="mb-4 text-primary">Soft Skills</h4>
+
+        <div class="skill-box">Communication</div>
+        <div class="skill-box">Teamwork</div>
+        <div class="skill-box">Problem Solving</div>
+        <div class="skill-box">Time Management</div>
+        <div class="skill-box">Adaptability</div>
+
+      </div>
+
+      <!-- TECHNICAL SKILLS -->
+      <div class="col-md-6 animate-box">
+
+        <h4 class="mb-4 text-primary">Technical Skills</h4>
+
+        <div class="skill-box">Python</div>
+        <div class="skill-box">HTML</div>
+        <div class="skill-box">CSS</div>
+        <div class="skill-box">Java</div>
+        <div class="skill-box">JavaScript</div>
+        <div class="skill-box">Bootstrap</div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- Education -->
+<section id="education" class="py-5 education-section">
+  <div class="container">
+
+    <h2 class="section-title text-center mb-5" data-aos="fade-up">
+      Education
+    </h2>
+
+    <div class="timeline">
+
+      <!-- BTECH -->
+      <div class="timeline-item" data-aos="fade-right">
+        <div class="timeline-content">
+          <h4>B.Tech - Information Technology</h4>
+          <p>2022 - 2026</p>
+          <p>Sir C.R. Reddy College of Engineering</p>
+        </div>
+      </div>
+
+      <!-- INTERMEDIATE -->
+      <div class="timeline-item" data-aos="fade-left">
+        <div class="timeline-content">
+          <h4>Intermediate - MPC</h4>
+          <p>2020 - 2022</p>
+          <p>Sri Chaitanya Junior College</p>
+        </div>
+      </div>
+
+      <!-- SCHOOL -->
+      <div class="timeline-item" data-aos="fade-right">
+        <div class="timeline-content">
+          <h4>Schooling</h4>
+          <p>2019 - 2020</p>
+          <p>Z P P High School</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- Projects -->
+<!-- PROJECTS -->
+<section id="projects" class="py-5 bg-light">
+  <div class="container">
+
+    <h2 class="section-title text-center mb-5" data-aos="fade-up">
+      My Projects
+    </h2>
+
+    <div class="row g-4">
+
+      <!-- COMPLETED PROJECT -->
+      <div class="col-md-6" data-aos="zoom-in">
+
+        <div class="project-card">
+
+          <h4>Smart Knowledge Assistant</h4>
+
+          <p>
+            An intelligent assistant built using Retrieval-Augmented Generation (RAG) 
+            that provides accurate and context-based answers. This project integrates 
+            modern AI techniques with full-stack development.
+          </p>
+
+          <p><strong>Completed:</strong> 6 months ago</p>
+
+          <!-- TECH STACK -->
+          <div class="mb-2">
+            <span class="tag">React</span>
+            <span class="tag">Python</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">LLM</span>
+            <span class="tag">Embeddings</span>
+            <span class="tag">Prompt Engineering</span>
+            <span class="tag">Groq API</span>
+          </div>
+
+          <!-- BUTTON -->
+          <a href="https://github.com/nmeghana92/Smart-Assistant-Knowledge"
+             target="_blank"
+             class="btn btn-primary mt-3">
+             View on GitHub
+          </a>
+
+        </div>
+      </div>
+
+      <!-- UPCOMING PROJECT -->
+      <div class="col-md-6" data-aos="zoom-in" data-aos-delay="200">
+
+        <div class="project-card upcoming">
+
+          <h4>Upcoming Project</h4>
+
+          <p>
+            Currently working on a new full-stack MERN application that focuses on 
+            real-world problem solving and enhanced user experience. 
+            More details will be updated soon.
+          </p>
+
+          <span class="badge bg-warning text-dark mt-2">
+            🚧 In Progress
+          </span>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- Services -->
+<!-- SERVICES -->
+<section id="services" class="py-5 services-section">
+  <div class="container">
+
+    <h2 class="section-title text-center mb-5" data-aos="fade-up">
+      What I Do
+    </h2>
+
+    <div class="row g-4">
+
+      <!-- SERVICE 1 -->
+      <div class="col-md-3" data-aos="fade-up">
+        <div class="service-card text-center">
+          <i class="fa fa-laptop-code"></i>
+          <h5 class="mt-3">Frontend Development</h5>
+          <p>Building responsive and user-friendly interfaces using modern technologies.</p>
+        </div>
+      </div>
+
+      <!-- SERVICE 2 -->
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-card text-center">
+          <i class="fa fa-layer-group"></i>
+          <h5 class="mt-3">MERN Stack Development</h5>
+          <p>Developing full-stack web applications using MongoDB, Express, React, and Node.js.</p>
+        </div>
+      </div>
+
+      <!-- SERVICE 3 -->
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-card text-center">
+          <i class="fa fa-robot"></i>
+          <h5 class="mt-3">AI Integration</h5>
+          <p>Integrating AI features like chatbots, RAG systems, and APIs into applications.</p>
+        </div>
+      </div>
+
+      <!-- SERVICE 4 -->
+      <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="service-card text-center">
+          <i class="fa fa-paint-brush"></i>
+          <h5 class="mt-3">UI / UX Design</h5>
+          <p>Designing clean and attractive user interfaces with a focus on user experience.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- Contact -->
+<!-- CONTACT -->
+<section id="contact" class="py-5 contact-section">
+  <div class="container">
+
+    <h2 class="section-title text-center mb-5" data-aos="fade-up">
+      Contact Me
+    </h2>
+
+    <div class="row g-4">
+
+      <!-- LEFT SIDE INFO -->
+      <div class="col-md-5" data-aos="fade-right">
+
+        <div class="contact-box">
+          <i class="fa fa-map-marker"></i>
+          <h5>Bhimavaram</h5>
+        </div>
+
+        <div class="contact-box">
+          <i class="fa fa-envelope"></i>
+          <h5>nmeghana9347@gmail.com</h5>
+        </div>
+
+        <div class="contact-box">
+          <i class="fa fa-phone"></i>
+          <h5>+91 9347861449</h5>
+        </div>
+
+      </div>
+
+      <!-- RIGHT SIDE FORM -->
+      <div class="col-md-7" data-aos="fade-left">
+
+        <form class="contact-form shadow">
+
+          <input type="text" class="form-control mb-3" placeholder="Your Name">
+          <input type="email" class="form-control mb-3" placeholder="Your Email">
+          <textarea class="form-control mb-3" rows="4" placeholder="Your Message"></textarea>
+
+          <button class="btn btn-primary w-100">Send Message</button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+    <!-- MAP -->
+    <div class="mt-5" data-aos="zoom-in">
+      <iframe 
+        src="https://www.google.com/maps?q=Bhimavaram&output=embed"
+        width="100%" 
+        height="300" 
+        style="border:0; border-radius:10px;">
+      </iframe>
+    </div>
+
+  </div>
+</section>
+<!-- Footer -->
+<footer class="bg-dark text-white text-center p-3">
+  © 2026 Meghana Nimmaluri
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
