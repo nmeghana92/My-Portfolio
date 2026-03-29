@@ -38,8 +38,7 @@ Font Awesome Icons
 ### 📊 Skills
 ![Skills](Portfolio%20Images/Skills.png)
 
-### 🚀 Projects & Services
-![Projects](Portfolio%20Images/Projects & Services.png)
+
 
 
 📌 Key Highlights
